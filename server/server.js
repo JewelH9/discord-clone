@@ -13,11 +13,24 @@ const server = http.createServer(app);
 // UPDATED CORS for production
 const io = socketIo(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      process.env.FRONTEND_URL,
+      /\.vercel\.app$/  // Allow all Vercel preview deployments
+    ],
     methods: ["GET", "POST"],
     credentials: true
   }
 });
+
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    process.env.FRONTEND_URL,
+    /\.vercel\.app$/  // Allow all Vercel preview deployments
+  ],
+  credentials: true
+}));
 
 // Middleware
 app.use(cors({
