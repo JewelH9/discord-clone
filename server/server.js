@@ -15,8 +15,9 @@ const io = socketIo(server, {
   cors: {
     origin: [
       "http://localhost:3000",
-      process.env.FRONTEND_URL,
-      /\.vercel\.app$/  // Allow all Vercel preview deployments
+      "https://discord-clone-beta-nine.vercel.app",
+      "https://discord-clone-ezgxh9lf7-jewelh9s-projects.vercel.app",
+      /\.vercel\.app$/
     ],
     methods: ["GET", "POST"],
     credentials: true
@@ -26,8 +27,9 @@ const io = socketIo(server, {
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    process.env.FRONTEND_URL,
-    /\.vercel\.app$/  // Allow all Vercel preview deployments
+    "https://discord-clone-beta-nine.vercel.app",
+    "https://discord-clone-ezgxh9lf7-jewelh9s-projects.vercel.app",
+    /\.vercel\.app$/
   ],
   credentials: true
 }));
